@@ -1,0 +1,37 @@
+<form method="POST" action="/process_test">
+    <label for="text">Input Text:</label>
+    <textarea id="text" name="text" rows="15" cols="100"></textarea>
+    <br><br>
+    <label for="start">Trigger Start:</label><input type="number" id="start" name="subj_start">
+    <label for="end">Trigger End:</label><input type="number" id="end" name="subj_end">
+    <br><br>
+    <label for="sample">sample texts:</label>
+    <select name="sample" id="sample" onchange="fillText()">
+        <option value="empty">Empty</option>
+        <option value="x1">In a joint investigation , Security ... </option>
+        <option value="x2">Website Mohit Kumar Critical ... </option>
+    </select>
+    <br><br>
+    <input type="submit" value="submit">
+</form>
+
+<script type="text/javascript">
+    function fillText(){
+        var sample = document.getElementById("sample").value;
+        if(sample=='x1'){
+            document.getElementById('text').value="In a joint investigation , Security researchers of McAfee and Technische Universität Darmstadt and the Center for Advanced Security Research Darmstadt ( CASED ) has discovered an Android app claiming to download ' The Interview ' comedy on their smartphone devices actually infects users ’ devices with banking trojan in order to steal their financial information ."
+            document.getElementById('start').value=52
+            document.getElementById('end').value=52
+        }
+        if(sample=='x2'){
+            document.getElementById('text').value='[ V ] Website Mohit Kumar Critical Sqli Vulnerability in channel'
+            document.getElementById('start').value=8
+            document.getElementById('end').value=8
+        }
+        if(sample=='empty'){
+            document.getElementById('text').value=''
+            document.getElementById('start').value=''
+            document.getElementById('end').value=''
+        }
+    }
+</script>
